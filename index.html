@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>スマホに無限のバッテリーを | Anker Nano Power Bank</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #0a0a0a;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* ヒーローセクション */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 150%;
+            height: 150%;
+            background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1) 0%, transparent 50%);
+            animation: rotate 30s linear infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.4;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            color: white;
+            max-width: 900px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 7vw, 5rem);
+            font-weight: 800;
+            margin-bottom: 30px;
+            letter-spacing: -2px;
+            line-height: 1.1;
+            background: linear-gradient(135deg, #FFE259 0%, #4EE2EC 25%, #FF3CAC 50%, #B5FFFC 75%, #FFE259 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 1s ease both, gradientShift 4s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .hero .subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            margin-bottom: 50px;
+            opacity: 0.9;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 20px 60px;
+            font-size: 1.1em;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+            color: white;
+        }
+
+        .cta-button:hover::before {
+            opacity: 1;
+        }
+
+        .cta-button span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* 問題提起セクション */
+        .problem {
+            background: #ffffff;
+            padding: 120px 40px;
+            position: relative;
+        }
+
+        .problem h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: #1a1a1a;
+            margin-bottom: 60px;
+            text-align: center;
+            font-weight: 800;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #FF3CAC 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .problem-scenario {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 60px;
+            border-radius: 30px;
+            margin: 40px auto;
+            max-width: 800px;
+            box-shadow: 0 30px 80px rgba(253,203,110,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .problem-scenario::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+            animation: float 8s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-20px, -20px); }
+        }
+
+        .battery-icon {
+            font-size: 5em;
+            margin: 20px 0;
+            filter: drop-shadow(0 10px 30px rgba(231,76,60,0.4));
+        }
+
+        /* 特徴セクション */
+        .features {
+            background: #0a0a0a;
+            padding: 120px 40px;
+            position: relative;
+        }
+
+        .features::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 20% 30%, rgba(102,126,234,0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 70%, rgba(118,75,162,0.1) 0%, transparent 50%);
+        }
+
+        .features h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            text-align: center;
+            margin-bottom: 80px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            position: relative;
+            background: linear-gradient(135deg, #4EE2EC 0%, #FFE259 50%, #FF3CAC 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .feature-card {
+            background: rgba(255,255,255,0.05);
+            padding: 50px 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(102,126,234,0.1) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(102,126,234,0.5);
+            box-shadow: 0 30px 60px rgba(102,126,234,0.3);
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-icon {
+            font-size: 3em;
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #4EE2EC 0%, #FF3CAC 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .feature-card p {
+            color: rgba(255,255,255,0.7);
+            line-height: 1.7;
+            font-size: 0.95em;
+        }
+
+        /* ラインナップセクション */
+        .lineup {
+            background: #ffffff;
+            padding: 120px 40px;
+        }
+
+        .lineup h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            text-align: center;
+            margin-bottom: 80px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, #FF3CAC 0%, #784BA0 50%, #4EE2EC 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .model-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .model-card {
+            background: #ffffff;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .model-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .model-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.15);
+            border-color: rgba(102,126,234,0.2);
+        }
+
+        .model-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .model-card h3 {
+            font-size: 1.8em;
+            margin-bottom: 30px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #FF3CAC 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .model-card ul {
+            list-style: none;
+            margin: 25px 0;
+        }
+
+        .model-card li {
+            padding: 15px 0;
+            padding-left: 35px;
+            position: relative;
+            color: #4a4a4a;
+            font-size: 1.05em;
+        }
+
+        .model-card li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .model-card li::after {
+            content: '✓';
+            position: absolute;
+            left: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+
+        /* 体験談セクション */
+        .testimonial {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 120px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+        }
+
+        .testimonial h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 60px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(135deg, #FFE259 0%, #FFDEE9 50%, #B5FFFC 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .testimonial-box {
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(20px);
+            padding: 60px;
+            border-radius: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.3);
+            font-size: 1.2em;
+            line-height: 1.9;
+            color: #1a1a1a;
+            position: relative;
+        }
+
+        .quote-mark {
+            font-size: 5em;
+            color: #667eea;
+            line-height: 0;
+            opacity: 0.3;
+        }
+
+        /* スペックセクション */
+        .specs {
+            background: #0a0a0a;
+            padding: 120px 40px;
+        }
+
+        .specs h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            text-align: center;
+            margin-bottom: 80px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, #B5FFFC 0%, #FF3CAC 50%, #FFE259 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .spec-table {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 50px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .spec-row {
+            display: flex;
+            padding: 25px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .spec-row:last-child {
+            border-bottom: none;
+        }
+
+        .spec-row:hover {
+            padding-left: 20px;
+        }
+
+        .spec-label {
+            font-weight: 600;
+            color: #667eea;
+            width: 220px;
+            font-size: 1.1em;
+        }
+
+        .spec-value {
+            color: rgba(255,255,255,0.8);
+            font-size: 1.05em;
+        }
+
+        /* 最終CTAセクション */
+        .final-cta {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 140px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1) 0%, transparent 70%);
+        }
+
+        .final-cta h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 30px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            position: relative;
+            background: linear-gradient(135deg, #FFE259 0%, #4EE2EC 25%, #FF3CAC 50%, #FFE259 75%, #4EE2EC 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 5s ease infinite;
+        }
+
+        .final-cta p {
+            font-size: 1.3em;
+            margin-bottom: 60px;
+            opacity: 0.9;
+            font-weight: 300;
+            position: relative;
+        }
+
+        .benefit-list {
+            list-style: none;
+            max-width: 700px;
+            margin: 50px auto;
+            text-align: left;
+            position: relative;
+        }
+
+        .benefit-list li {
+            padding: 20px 25px;
+            margin: 15px 0;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding-left: 60px;
+            position: relative;
+            font-size: 1.2em;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .benefit-list li:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateX(10px);
+        }
+
+        .benefit-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 22px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5em;
+            font-weight: bold;
+            width: 30px;
+            height: 30px;
+            background: white;
+            color: #667eea;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* スクロールインジケーター */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 2em;
+            animation: bounce 2s infinite;
+            opacity: 0.7;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        /* レスポンシブ */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            .feature-grid, .model-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .spec-row {
+                flex-direction: column;
+            }
+
+            .spec-label {
+                width: 100%;
+                margin-bottom: 8px;
+            }
+
+            .problem-scenario,
+            .testimonial-box,
+            .spec-table {
+                padding: 40px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヒーローセクション -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>無限のバッテリー体験</h1>
+            <p class="subtitle">次世代モバイルパワーが、あなたのライフスタイルを変える</p>
+            <a href="https://item.rakuten.co.jp/anker/a1645/?scid=af_sp_etc&sc2id=af_101_0_0" class="cta-button" target="_blank"><span>今すぐ体験する</span></a>
+        </div>
+        <div class="scroll-indicator">↓</div>
+    </section>
+
+    <!-- 問題提起セクション -->
+    <section class="problem">
+        <div class="container">
+            <h2>バッテリー不安から解放される</h2>
+            <div class="problem-scenario">
+                <p style="font-size: 1.3em; margin-bottom: 30px; font-weight: 600; position: relative;">朝100%で出かけたスマホが...</p>
+                <p style="font-size: 1.15em; margin: 15px 0; position: relative;">📱 通勤中にニュースチェック</p>
+                <p style="font-size: 1.15em; margin: 15px 0; position: relative;">💬 昼休みにSNS</p>
+                <p style="font-size: 1.15em; margin: 15px 0; position: relative;">📧 午後は仕事のメール</p>
+                <p style="font-size: 1.15em; margin: 15px 0; position: relative;">🎵 帰りにYouTube...</p>
+                <div class="battery-icon">🔋</div>
+                <p style="font-size: 2em; color: #d63031; font-weight: 700; margin-top: 20px; position: relative;">残量20%以下</p>
+                <p style="font-size: 1.2em; margin-top: 30px; color: #2c3e50; position: relative;">この不安、もう終わりにしよう</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 特徴セクション -->
+    <section class="features">
+        <div class="container">
+            <h2>究極のパフォーマンス</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🪶</div>
+                    <h3>超軽量デザイン</h3>
+                    <p>革新的な設計により、まるで持っていないかのような軽さ。ポケットに入れても全く邪魔にならない究極のポータビリティ。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>次世代充電技術</h3>
+                    <p>Qi2対応ワイヤレス充電で、ケーブルレス体験。MagSafe完全対応で、完璧な吸着力と高速充電を実現。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔋</div>
+                    <h3>大容量エネルギー</h3>
+                    <p>5000mAh〜10000mAhの大容量。一日中、いや二日間も充電不要の安心感を提供します。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>信頼のクオリティ</h3>
+                    <p>世界で数千万台の実績を誇るAnkerブランド。最高品質の部品と徹底した品質管理で、長期使用を保証。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ラインナップセクション -->
+    <section class="lineup">
+        <div class="container">
+            <h2>最適なモデルを見つける</h2>
+            <div class="model-grid">
+                <div class="model-card">
+                    <h3>🍎 Lightning Edition</h3>
+                    <ul>
+                        <li>iPhone専用設計</li>
+                        <li>MagSafe完全互換</li>
+                        <li>シームレスな統合</li>
+                        <li>5000mAh大容量</li>
+                    </ul>
+                </div>
+                <div class="model-card">
+                    <h3>⚡ USB-C Pro</h3>
+                    <ul>
+                        <li>最新デバイス対応</li>
+                        <li>超高速充電対応</li>
+                        <li>ユニバーサル互換性</li>
+                        <li>次世代規格完全対応</li>
+                    </ul>
+                </div>
+                <div class="model-card">
+                    <h3>💪 Ultra Capacity</h3>
+                    <ul>
+                        <li>10000mAh超大容量</li>
+                        <li>45W高出力対応</li>
+                        <li>ノートPC充電可能</li>
+                        <li>複数デバイス同時充電</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 体験談セクション -->
+    <section class="testimonial">
+        <div class="container">
+            <h2>ユーザーボイス</h2>
+            <div class="testimonial-box">
+                <div class="quote-mark">"</div>
+                <p>このバッテリーは<strong style="color: #667eea;">私のライフスタイルを完全に変えました</strong>。充電切れのストレスから完全に解放され、本当に必要な瞬間にスマホを使えるという安心感は、想像以上の価値があります。</p>
+                <p style="margin-top: 25px;">軽量、薄型、大容量、ワイヤレス——この<strong style="color: #764ba2;">4つの要素が完璧に融合</strong>した製品です。</p>
+                <p style="margin-top: 25px;">旅行でも、ビジネスでも、日常でも。<strong style="color: #667eea;">これなしの生活はもう考えられません</strong>。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- スペックセクション -->
+    <section class="specs">
+        <div class="container">
+            <h2>技術仕様</h2>
+            <div class="spec-table">
+                <div class="spec-row">
+                    <div class="spec-label">バッテリー容量</div>
+                    <div class="spec-value">5000mAh / 10000mAh</div>
+                </div>
+                <div class="spec-row">
+                    <div class="spec-label">最大出力</div>
+                    <div class="spec-value">15W〜45W（モデル依存）</div>
+                </div>
+                <div class="spec-row">
+                    <div class="spec-label">充電技術</div>
+                    <div class="spec-value">Qi2 ワイヤレス急速充電</div>
+                </div>
+                <div class="spec-row">
+                    <div class="spec-label">接続端子</div>
+                    <div class="spec-value">USB-C / Lightning</div>
+                </div>
+                <div class="spec-row">
+                    <div class="spec-label">デザイン</div>
+                    <div class="spec-value">超薄型・超軽量プレミアム設計</div>
+                </div>
+                <div class="spec-row">
+                    <div class="spec-label">互換性</div>
+                    <div class="spec-value">MagSafe対応（iPhone全機種）</div>
+                </div>
+                <div class="spec-row">
+                    <div class="spec-label">機能</div>
+                    <div class="spec-value">スタンド機能、LED表示、多重保護システム</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 最終CTAセクション -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>新しい充電体験を始めよう</h2>
+            <p>絶対的な安心感を、今すぐあなたのものに</p>
+            
+            <ul class="benefit-list">
+                <li>完全なモバイルフリーダム</li>
+                <li>バッテリー不安ゼロの日常</li>
+                <li>ストレスフリーなライフスタイル</li>
+                <li>一度使えば手放せない体験</li>
+            </ul>
+
+            <a href="https://item.rakuten.co.jp/anker/a1645/?scid=af_sp_etc&sc2id=af_101_0_0" class="cta-button" target="_blank"><span>Anker Nano Power Bankを購入</span></a>
+            
+            <p style="margin-top: 50px; font-size: 1.05em; opacity: 0.85; position: relative;">世界中で信頼されるAnkerクオリティ</p>
+        </div>
+    </section>
+
+    <script>
+        // 高度なスクロールアニメーション
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -80px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0) scale(1)';
+                    }, index * 100);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.feature-card, .model-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(40px) scale(0.95)';
+            el.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+            observer.observe(el);
+        });
+
+        // パララックス効果
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroContent = document.querySelector('.hero-content');
+            if (heroContent) {
+                heroContent.style.transform = `translateY(${scrolled * 0.5}px)`;
+                heroContent.style.opacity = 1 - (scrolled / 700);
+            }
+        });
+
+        // スムーズスクロール
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // CTAボタンの高度なインタラクション
+        document.querySelectorAll('.cta-button').forEach(button => {
+            button.addEventListener('mouseenter', function() {
+                this.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+            });
+            
+            button.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                ripple.style.position = 'absolute';
+                ripple.style.borderRadius = '50%';
+                ripple.style.background = 'rgba(255,255,255,0.6)';
+                ripple.style.transform = 'scale(0)';
+                ripple.style.animation = 'ripple 0.6s ease-out';
+                ripple.style.pointerEvents = 'none';
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+
+        // スクロールインジケーターの自動非表示
+        window.addEventListener('scroll', () => {
+            const indicator = document.querySelector('.scroll-indicator');
+            if (indicator && window.pageYOffset > 100) {
+                indicator.style.opacity = '0';
+                indicator.style.pointerEvents = 'none';
+            }
+        });
+
+        // CSS アニメーション追加
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
